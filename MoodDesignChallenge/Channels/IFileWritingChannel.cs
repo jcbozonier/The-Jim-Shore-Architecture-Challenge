@@ -2,6 +2,6 @@
 {
     public interface IFileWritingChannel
     {
-        void Write(string textToWrite, string filePath);
+        void WriteTo(string toFilePath);
     }
 }

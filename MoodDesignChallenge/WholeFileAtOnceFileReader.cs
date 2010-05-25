@@ -4,17 +4,17 @@ namespace MoodDesignChallenge
 {
     public class WholeFileAtOnceFileReader : IFileReadingChannel
     {
-        private ITextReceivedChannel _textReceivedChannelChannel;
+        private IProcessedTextChannel _processedTextChannelChannel;
 
-        public void SubscribeTo(ITextReceivedChannel textReceivedChannelChannel)
+        public void AddSubscriber(IProcessedTextChannel processedTextChannelChannel)
         {
-            _textReceivedChannelChannel = textReceivedChannelChannel;
+            _processedTextChannelChannel = processedTextChannelChannel;
         }
 
         public void Read(string filePath)
         {
             var readText = File.ReadAllText(filePath);
-            _textReceivedChannelChannel.Received(readText);
+            _processedTextChannelChannel.Process(readText);
         }
     }
 }

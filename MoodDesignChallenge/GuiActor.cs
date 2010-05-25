@@ -1,36 +1,35 @@
 ﻿namespace MoodDesignChallenge
 {
-    public class GuiActor : ITextReceivedChannel
+    public class GuiActor : IProcessedTextChannel
     {
         private IFileReadingChannel FileReadingChannel;
         private IFileWritingChannel FileWritingChannel;
-        private ITextReceivedChannel DisplayChannel;
+        private IProcessedTextChannel DisplayChannel;
 
         public void Encode(string fromFilePath, string toFilePath)
         {
-            var textToEncode = "";
+            FileWritingChannel.WriteTo(toFilePath);
             FileReadingChannel.Read(fromFilePath);
-            FileWritingChannel.Write(textToEncode, toFilePath);
         }
 
-        public void SubscribeToChannel(IFileReadingChannel fileReadingChannel)
+        public void AddSubscriber(IFileReadingChannel fileReadingChannel)
         {
             FileReadingChannel = fileReadingChannel;
         }
 
-        public void SubscribeToChannel(IFileWritingChannel fileWritingChannel)
+        public void AddSubscriber(IFileWritingChannel fileWritingChannel)
         {
             FileWritingChannel = fileWritingChannel;
         }
 
-        public void SubscribeToChannel(ITextReceivedChannel displayChannel)
+        public void AddSubscriber(IProcessedTextChannel displayChannel)
         {
             DisplayChannel = displayChannel;
         }
 
-        public void Received(string text)
+        public void Process(string text)
         {
-            DisplayChannel.Received(text);
+            DisplayChannel.Process(text);
         }
     }
 }

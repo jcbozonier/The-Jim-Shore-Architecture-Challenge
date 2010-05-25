@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
+using MoodDesignChallenge;
 using NUnit.Framework;
 
-namespace MoodDesignChallenge.Tests
+namespace Tests.FocusedIntegrationTests
 {
     [TestFixture]
     public class WholeFileAtOnceFileWriterTests
@@ -14,7 +15,8 @@ namespace MoodDesignChallenge.Tests
             {
                 var testText = "abc" + Environment.NewLine + "defdfssd fsdf dssd34$#33 dfsf";
                 var writer = new WholeFileAtOnceFileWriter();
-                writer.Write(testText, "writternEmptyFile.txt");
+                writer.WriteTo("writternEmptyFile.txt");
+                writer.Process(testText);
 
                 var actualFileText = File.ReadAllText("writternEmptyFile.txt");
 

@@ -1,15 +1,15 @@
 ﻿namespace MoodDesignChallenge
 {
-    public class ROT13Encoding : IEncodingChannel
+    public class ROT13Encoding : IProcessedTextChannel
     {
-        private ITextReceivedChannel TextReceivedChannel;
+        private IProcessedTextChannel _processedTextChannel;
 
-        public void SubscribeTo(ITextReceivedChannel textReceivedChannel)
+        public void AddSubscriber(IProcessedTextChannel processedTextChannel)
         {
-            TextReceivedChannel = textReceivedChannel;
+            _processedTextChannel = processedTextChannel;
         }
 
-        public void Encode(string stringToEncode)
+        public void Process(string stringToEncode)
         {
             var result = "";
 
@@ -24,7 +24,7 @@
                     result += character;
             }
 
-            TextReceivedChannel.Received(result);
+            _processedTextChannel.Process(result);
         
         }
     }

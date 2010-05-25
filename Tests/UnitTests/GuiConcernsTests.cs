@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System;
+using MoodDesignChallenge;
+using NUnit.Framework;
 
-namespace MoodDesignChallenge.Tests
+namespace Tests.UnitTests
 {
     [TestFixture]
     public class GuiConcernsTests
@@ -12,8 +14,8 @@ namespace MoodDesignChallenge.Tests
             var fileWritingChannel = new FileWritingStub();
 
             var guiActor = new GuiActor();
-            guiActor.SubscribeToChannel(fileReadingChannel);
-            guiActor.SubscribeToChannel(fileWritingChannel);
+            guiActor.AddSubscriber(fileReadingChannel);
+            guiActor.AddSubscriber(fileWritingChannel);
 
             guiActor.Encode("from file", "to file");
 
@@ -24,11 +26,11 @@ namespace MoodDesignChallenge.Tests
         [Test]
         public void When_updating_the_display_with_the_encoded_text()
         {
-            var displayChannel = new TextObserver(); 
+            var displayChannel = new ProcessedTextObserver(); 
             var guiActor = new GuiActor();
-            guiActor.SubscribeToChannel(displayChannel);
+            guiActor.AddSubscriber(displayChannel);
 
-            guiActor.Received("testing!");
+            guiActor.Process("testing!");
 
             Assert.That(displayChannel.ReceivedText, Is.EqualTo("testing!"));
         }
@@ -38,7 +40,11 @@ namespace MoodDesignChallenge.Tests
     {
         public string FilePathToWrite;
 
-        public void Write(string textToWrite, string filePath)
+        public void Write(string textToWrite)
+        {
+        }
+
+        public void WriteTo(string filePath)
         {
             FilePathToWrite = filePath;
         }

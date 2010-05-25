@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using MoodDesignChallenge;
+using NUnit.Framework;
 
-namespace MoodDesignChallenge.Tests
+namespace Tests.UnitTests
 {
     [TestFixture]
     public class ROT13EncoderTest
@@ -10,10 +11,10 @@ namespace MoodDesignChallenge.Tests
         {
             var expectedString = "";
 
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode("");
+            encoder.AddSubscriber(textObserver);
+            encoder.Process("");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -23,10 +24,10 @@ namespace MoodDesignChallenge.Tests
         {
             var expectedString = "n";
 
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode("a");
+            encoder.AddSubscriber(textObserver);
+            encoder.Process("a");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -36,10 +37,10 @@ namespace MoodDesignChallenge.Tests
         {
             var expectedString = "N";
 
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode("A");
+            encoder.AddSubscriber(textObserver);
+            encoder.Process("A");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -49,10 +50,10 @@ namespace MoodDesignChallenge.Tests
         {
             var expectedString = "\t";
 
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode("\t");
+            encoder.AddSubscriber(textObserver);
+            encoder.Process("\t");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -62,10 +63,10 @@ namespace MoodDesignChallenge.Tests
         {
             var expectedString = "no";
 
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode("ab");
+            encoder.AddSubscriber(textObserver);
+            encoder.Process("ab");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -74,10 +75,10 @@ namespace MoodDesignChallenge.Tests
         public void When_encoding_a_character_that_lies_between_Z_and_a_in_ascii()
         {
             var expectedString = ((char)('Z' + 1)).ToString();
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode(expectedString);
+            encoder.AddSubscriber(textObserver);
+            encoder.Process(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -86,10 +87,10 @@ namespace MoodDesignChallenge.Tests
         public void When_encoding_a_character_that_lies_beyond_lowercase_z_in_ascii()
         {
             var expectedString = ((char) ('z' + 1)).ToString();
-            var textObserver = new TextObserver();
+            var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.SubscribeTo(textObserver);
-            encoder.Encode(expectedString);
+            encoder.AddSubscriber(textObserver);
+            encoder.Process(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }

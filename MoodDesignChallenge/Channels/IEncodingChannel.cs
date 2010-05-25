@@ -2,6 +2,6 @@
 {
     public interface IEncodingChannel
     {
-        void Encode(string stringToEncode);
+        void Received(string stringToEncode);
     }
 }

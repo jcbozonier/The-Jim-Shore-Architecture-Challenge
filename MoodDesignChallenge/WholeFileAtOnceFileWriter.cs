@@ -1,12 +1,20 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace MoodDesignChallenge
 {
-    public class WholeFileAtOnceFileWriter : IFileWritingChannel
+    public class WholeFileAtOnceFileWriter : IProcessedTextChannel, IFileWritingChannel
     {
-        public void Write(string textToWrite, string filePath)
+        private string FilePath;
+
+        public void Process(string textToWrite)
         {
-            File.WriteAllText(filePath, textToWrite);
+            File.WriteAllText(FilePath, textToWrite);
+        }
+
+        public void WriteTo(string toFilePath)
+        {
+            FilePath = toFilePath;
         }
     }
 }
