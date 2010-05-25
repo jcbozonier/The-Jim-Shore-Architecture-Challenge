@@ -4,6 +4,13 @@ namespace MoodDesignChallenge
 {
     public class ROT13Encoding : IEncodingChannel
     {
+        private ITextReceivedChannel TextReceivedChannel;
+
+        public void SubscribeTo(ITextReceivedChannel textReceivedChannel)
+        {
+            TextReceivedChannel = textReceivedChannel;
+        }
+
         public void Encode(string stringToEncode, Action<string> resultChannel)
         {
             var result = "";

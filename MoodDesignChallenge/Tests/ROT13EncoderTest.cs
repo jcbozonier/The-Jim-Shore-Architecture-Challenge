@@ -8,25 +8,25 @@ namespace MoodDesignChallenge.Tests
         [Test]
         public void When_ROT13_encoding_an_empty_string()
         {
-            string actualString = null;
             var expectedString = "";
 
+            var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("", encodedString => actualString = encodedString);
-            
-            Assert.That(actualString, Is.EqualTo(expectedString));
+            encoder.Encode("", textObserver.Received);
+
+            Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
 
         [Test]
         public void When_ROT13_encoding_a_lowercase_letter()
         {
-            string actualString = null;
             var expectedString = "n";
 
+            var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("a", encodedString=>actualString = encodedString);
+            encoder.Encode("a", textObserver.Received);
 
-            Assert.That(actualString, Is.EqualTo(expectedString));
+            Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
 
         [Test]
