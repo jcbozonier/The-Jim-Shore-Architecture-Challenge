@@ -11,16 +11,13 @@ namespace Tests.UnitTests
         public void When_calling_encode_with_non_null_parameters()
         {
             var fileReadingChannel = new FileReadingStub();
-            var fileWritingChannel = new FileWritingStub();
 
             var guiActor = new GuiActor();
             guiActor.AddSubscriber(fileReadingChannel);
-            guiActor.AddSubscriber(fileWritingChannel);
 
-            guiActor.Encode("from file", "to file");
+            guiActor.Encode();
 
-            Assert.That(fileReadingChannel.FilePathToRead, Is.EqualTo("from file"));
-            Assert.That(fileWritingChannel.FilePathToWrite, Is.EqualTo("to file"));
+            Assert.That(fileReadingChannel.FileWasRead, Is.True);
         }
 
         [Test]
@@ -36,29 +33,13 @@ namespace Tests.UnitTests
         }
     }
 
-    public class FileWritingStub : IFileWritingChannel
-    {
-        public string FilePathToWrite;
-
-        public void Write(string textToWrite)
-        {
-        }
-
-        public void WriteTo(string filePath)
-        {
-            FilePathToWrite = filePath;
-        }
-    }
-
     public class FileReadingStub : IFileReadingChannel
     {
-        public string FilePathToRead;
+        public bool FileWasRead;
 
-        public void Read(string filePath)
+        public void Read()
         {
-            FilePathToRead = filePath;
-
-
+            FileWasRead = true;
         }
     }
 }

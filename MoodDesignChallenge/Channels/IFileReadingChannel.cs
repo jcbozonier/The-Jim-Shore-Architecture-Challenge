@@ -2,6 +2,6 @@
 {
     public interface IFileReadingChannel
     {
-        void Read(string filePath);
+        void Read();
     }
 }

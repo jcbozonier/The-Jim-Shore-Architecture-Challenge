@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
+using MoodDesignChallenge.Channels;
 
 namespace MoodDesignChallenge
 {
-    public class WholeFileAtOnceFileWriter : IProcessedTextChannel, IFileWritingChannel
+    public class WholeFileAtOnceFileWriter : IProcessedTextChannel, IFilePathConfiguration
     {
         private string FilePath;
 
@@ -12,7 +13,7 @@ namespace MoodDesignChallenge
             File.WriteAllText(FilePath, textToWrite);
         }
 
-        public void WriteTo(string toFilePath)
+        public void SetFilePath(string toFilePath)
         {
             FilePath = toFilePath;
         }

@@ -3,23 +3,16 @@
     public class GuiActor : IProcessedTextChannel
     {
         private IFileReadingChannel FileReadingChannel;
-        private IFileWritingChannel FileWritingChannel;
         private IProcessedTextChannel DisplayChannel;
 
-        public void Encode(string fromFilePath, string toFilePath)
+        public void Encode()
         {
-            FileWritingChannel.WriteTo(toFilePath);
-            FileReadingChannel.Read(fromFilePath);
+            FileReadingChannel.Read();
         }
 
         public void AddSubscriber(IFileReadingChannel fileReadingChannel)
         {
             FileReadingChannel = fileReadingChannel;
-        }
-
-        public void AddSubscriber(IFileWritingChannel fileWritingChannel)
-        {
-            FileWritingChannel = fileWritingChannel;
         }
 
         public void AddSubscriber(IProcessedTextChannel displayChannel)

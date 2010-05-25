@@ -15,7 +15,7 @@ namespace Tests.FocusedIntegrationTests
             {
                 var testText = "abc" + Environment.NewLine + "defdfssd fsdf dssd34$#33 dfsf";
                 var writer = new WholeFileAtOnceFileWriter();
-                writer.WriteTo("writternEmptyFile.txt");
+                writer.SetFilePath("writternEmptyFile.txt");
                 writer.Process(testText);
 
                 var actualFileText = File.ReadAllText("writternEmptyFile.txt");

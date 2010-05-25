@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleEndToEndTest.cs" />
+    <Compile Include="FocusedIntegrationTests\ConfigurationActorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\GuiConcernsTests.cs" />
     <Compile Include="UnitTests\MultiSubscriberTests.cs" />

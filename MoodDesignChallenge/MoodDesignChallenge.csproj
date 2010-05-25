@@ -49,9 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Channels\IEncodingChannel.cs" />
+    <Compile Include="Channels\IFilePathConfiguration.cs" />
     <Compile Include="Channels\IFileReadingChannel.cs" />
+    <Compile Include="ConfigurationActor.cs" />
     <Compile Include="GuiActor.cs" />
-    <Compile Include="Channels\IFileWritingChannel.cs" />
     <Compile Include="Channels\IProcessedTextChannel.cs" />
     <Compile Include="MultipleTextObserverSubscriber.cs" />
     <Compile Include="ObserverExtensions.cs" />
