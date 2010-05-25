@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MoodDesignChallenge
+﻿namespace MoodDesignChallenge
 {
     public class ROT13Encoding : IEncodingChannel
     {
@@ -11,7 +9,7 @@ namespace MoodDesignChallenge
             TextReceivedChannel = textReceivedChannel;
         }
 
-        public void Encode(string stringToEncode, Action<string> resultChannel)
+        public void Encode(string stringToEncode)
         {
             var result = "";
 
@@ -26,7 +24,7 @@ namespace MoodDesignChallenge
                     result += character;
             }
 
-            resultChannel(result);
+            TextReceivedChannel.Received(result);
         
         }
     }

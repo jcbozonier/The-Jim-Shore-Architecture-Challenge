@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace MoodDesignChallenge
+﻿namespace MoodDesignChallenge
 {
     public interface IEncodingChannel
     {
-        void Encode(string stringToEncode, Action<string> resultChannel);
+        void Encode(string stringToEncode);
     }
 }

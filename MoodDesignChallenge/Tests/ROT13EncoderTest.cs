@@ -12,7 +12,8 @@ namespace MoodDesignChallenge.Tests
 
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("", textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode("");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -24,7 +25,8 @@ namespace MoodDesignChallenge.Tests
 
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("a", textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode("a");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -36,7 +38,8 @@ namespace MoodDesignChallenge.Tests
 
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("A", textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode("A");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -48,7 +51,8 @@ namespace MoodDesignChallenge.Tests
 
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("\t", textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode("\t");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -60,7 +64,8 @@ namespace MoodDesignChallenge.Tests
 
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode("ab", textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode("ab");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -71,7 +76,8 @@ namespace MoodDesignChallenge.Tests
             var expectedString = ((char)('Z' + 1)).ToString();
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode(expectedString, textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -82,7 +88,8 @@ namespace MoodDesignChallenge.Tests
             var expectedString = ((char) ('z' + 1)).ToString();
             var textObserver = new TextObserver();
             var encoder = new ROT13Encoding();
-            encoder.Encode(expectedString, textObserver.Received);
+            encoder.SubscribeTo(textObserver);
+            encoder.Encode(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
