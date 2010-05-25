@@ -2,9 +2,9 @@
 
 namespace MoodDesignChallenge
 {
-    public class ROT13Encoding
+    public class ROT13Encoding : IEncodingChannel
     {
-        public void Encode(string stringToEncode, Func<string, string> resultChannel)
+        public void Encode(string stringToEncode, Action<string> resultChannel)
         {
             var result = "";
 

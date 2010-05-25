@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEncodingChannel.cs" />
+    <Compile Include="IFileReadingChannel.cs" />
+    <Compile Include="GuiActor.cs" />
+    <Compile Include="Tests\GuiConcernsTests.cs" />
     <Compile Include="Tests\ROT13EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ROT13Encoding.cs" />

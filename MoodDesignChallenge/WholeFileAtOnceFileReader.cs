@@ -3,9 +3,9 @@ using System.IO;
 
 namespace MoodDesignChallenge
 {
-    public class WholeFileAtOnceFileReader
+    public class WholeFileAtOnceFileReader : IFileReadingChannel
     {
-        public void Read(string filePath, Func<string, string> resultChannel)
+        public void Read(string filePath, Action<string> resultChannel)
         {
             var readText = File.ReadAllText(filePath);
             resultChannel(readText);
