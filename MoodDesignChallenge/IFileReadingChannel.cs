@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace MoodDesignChallenge
+﻿namespace MoodDesignChallenge
 {
     public interface IFileReadingChannel
     {
-        void Read(string filePath, Action<string> resultChannel);
+        void Read(string filePath);
     }
 }

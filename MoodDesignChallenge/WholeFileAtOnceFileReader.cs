@@ -1,14 +1,20 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace MoodDesignChallenge
 {
     public class WholeFileAtOnceFileReader : IFileReadingChannel
     {
-        public void Read(string filePath, Action<string> resultChannel)
+        private ITextReceivedChannel _textReceivedChannelChannel;
+
+        public void SubscribeTo(ITextReceivedChannel textReceivedChannelChannel)
+        {
+            _textReceivedChannelChannel = textReceivedChannelChannel;
+        }
+
+        public void Read(string filePath)
         {
             var readText = File.ReadAllText(filePath);
-            resultChannel(readText);
+            _textReceivedChannelChannel.Received(readText);
         }
     }
 }

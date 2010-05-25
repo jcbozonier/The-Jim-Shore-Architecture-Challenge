@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace MoodDesignChallenge.Tests
 {
@@ -12,44 +8,41 @@ namespace MoodDesignChallenge.Tests
         [Test]
         public void When_calling_encode_with_non_null_parameters()
         {
-            var testText = "test text";
+            var fileReadingChannel = new FileReadingStub();
+            var fileWritingChannel = new FileWritingStub();
 
-            var fileReadingChannel = new FileReadingStub(testText);
-            var encodingChannel = new EncodingStub();
-
-            var guiActor = new GuiActor(fileReadingChannel, encodingChannel);
+            var guiActor = new GuiActor();
+            guiActor.SubscribeToChannel(fileReadingChannel);
+            guiActor.SubscribeToChannel(fileWritingChannel);
 
             guiActor.Encode("from file", "to file");
 
             Assert.That(fileReadingChannel.FilePathToRead, Is.EqualTo("from file"));
-            Assert.That(encodingChannel.TextToEncode, Is.EqualTo(testText));
+            Assert.That(fileWritingChannel.FilePathToWrite, Is.EqualTo("to file"));
         }
+
+        
     }
 
-    public class EncodingStub : IEncodingChannel
+    public class FileWritingStub : IFileWritingChannel
     {
-        public string TextToEncode;
+        public string FilePathToWrite;
 
-        public void Encode(string stringToEncode, Action<string> resultChannel)
+        public void Write(string textToWrite, string filePath)
         {
-            TextToEncode = stringToEncode;
+            FilePathToWrite = filePath;
         }
     }
 
     public class FileReadingStub : IFileReadingChannel
     {
-        private readonly string TestText;
         public string FilePathToRead;
 
-        public FileReadingStub(string testText)
-        {
-            TestText = testText;
-        }
-
-        public void Read(string filePath, Action<string> resultChannel)
+        public void Read(string filePath)
         {
             FilePathToRead = filePath;
-            resultChannel(TestText);
+
+
         }
     }
 }

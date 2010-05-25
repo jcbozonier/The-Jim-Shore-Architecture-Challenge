@@ -2,20 +2,24 @@
 {
     public class GuiActor
     {
-        private readonly IFileReadingChannel FileReadingChannel;
-        private readonly IEncodingChannel EncodingChannel;
-
-        public GuiActor(IFileReadingChannel fileReadingChannel, IEncodingChannel encodingChannel)
-        {
-            FileReadingChannel = fileReadingChannel;
-            EncodingChannel = encodingChannel;
-        }
+        private IFileReadingChannel FileReadingChannel;
+        private IFileWritingChannel FileWritingChannel;
 
         public void Encode(string fromFilePath, string toFilePath)
         {
             var textToEncode = "";
-            FileReadingChannel.Read(fromFilePath, x => { textToEncode = x; });
-            EncodingChannel.Encode(textToEncode, x=> { });
+            FileReadingChannel.Read(fromFilePath);
+            FileWritingChannel.Write(textToEncode, toFilePath);
+        }
+
+        public void SubscribeToChannel(IFileReadingChannel fileReadingChannel)
+        {
+            FileReadingChannel = fileReadingChannel;
+        }
+
+        public void SubscribeToChannel(IFileWritingChannel fileWritingChannel)
+        {
+            FileWritingChannel = fileWritingChannel;
         }
     }
 }

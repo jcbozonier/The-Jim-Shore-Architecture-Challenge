@@ -2,7 +2,7 @@
 
 namespace MoodDesignChallenge
 {
-    public class WholeFileAtOnceFileWriter
+    public class WholeFileAtOnceFileWriter : IFileWritingChannel
     {
         public void Write(string textToWrite, string filePath)
         {
