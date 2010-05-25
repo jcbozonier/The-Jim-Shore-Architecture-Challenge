@@ -12,6 +12,8 @@
     <AssemblyName>MoodDesignChallenge</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +51,8 @@
     <Compile Include="Tests\ROT13EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ROT13Encoding.cs" />
+    <Compile Include="WholeFileAtOnceFileWriter.cs" />
+    <Compile Include="Tests\WholeFileAtOnceFileWriterTests.cs" />
     <Compile Include="WholeFileAtOnceFileReader.cs" />
     <Compile Include="Tests\WholeFileAtOnceFileReaderTests.cs" />
   </ItemGroup>
