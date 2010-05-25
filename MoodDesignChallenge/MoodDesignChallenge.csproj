@@ -54,7 +54,6 @@
     <Compile Include="RunNetwork.cs" />
     <Compile Include="Stubs\FileReadingStub.cs" />
     <Compile Include="Stubs\FileSystemConfigurationChannel.cs" />
-    <Compile Include="SystemControlCenter.cs" />
     <Compile Include="Stubs\IProcessedText.cs" />
     <Compile Include="Stubs\MultipleTextObserverSubscriber.cs" />
     <Compile Include="Stubs\ObserverExtensions.cs" />

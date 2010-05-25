@@ -49,7 +49,6 @@
     <Compile Include="ConsoleEndToEndTest.cs" />
     <Compile Include="FocusedIntegrationTests\ConfigurationActorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTests\GuiConcernsTests.cs" />
     <Compile Include="UnitTests\MultiSubscriberTests.cs" />
     <Compile Include="UnitTests\ROT13EncoderTest.cs" />
     <Compile Include="FocusedIntegrationTests\WholeFileAtOnceFileReaderTests.cs" />
