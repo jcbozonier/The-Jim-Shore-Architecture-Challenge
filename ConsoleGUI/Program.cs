@@ -1,6 +1,4 @@
-﻿using System;
-using MoodDesignChallenge;
-using MoodDesignChallenge.Channels;
+﻿using MoodDesignChallenge;
 
 namespace ConsoleGUI
 {
@@ -8,28 +6,9 @@ namespace ConsoleGUI
     {
         public static void Main(string[] args)
         {
-            var configuration = new ConfigurationActor();
-            var guiActor = new GuiActor();
-            var encoder = new ROT13Encoding();
-            var fileReader = new WholeFileAtOnceFileReader();
-            var fileWriter = new WholeFileAtOnceFileWriter();
             var guiWriter = new GuiWriter();
-            var encodedTextSubscribers = new IProcessedTextChannel[]
-                                               {
-                                                   guiActor, 
-                                                   fileWriter
-                                               }.CreateMultiObserver();
 
-            configuration.ActorToReadFromFilePath(fileReader);
-            configuration.ActorToWriteToFilePath(fileWriter);
-            guiActor.AddSubscriber(fileReader);
-            guiActor.AddSubscriber(guiWriter);
-            fileReader.AddSubscriber(encoder);
-            encoder.AddSubscriber(encodedTextSubscribers);
-
-            configuration.Configure();
-
-            guiActor.Encode();
+            RunNetwork.RunSystem(guiWriter);
         }
     }
 }

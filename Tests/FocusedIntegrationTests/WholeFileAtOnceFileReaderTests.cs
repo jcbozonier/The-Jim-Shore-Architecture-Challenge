@@ -14,7 +14,7 @@ namespace Tests.FocusedIntegrationTests
         {
             var textObserver = new ProcessedTextObserver();
             var reader = new WholeFileAtOnceFileReader();
-            reader.AddSubscriber(textObserver);
+            reader.OnNewTextAvailableNotify(textObserver);
             reader.SetFilePath(TEST_FILE_PATH + "emptyTestFile.txt");
             reader.Read();
 
@@ -26,7 +26,7 @@ namespace Tests.FocusedIntegrationTests
         {
             var textObserver = new ProcessedTextObserver();
             var reader = new WholeFileAtOnceFileReader();
-            reader.AddSubscriber(textObserver);
+            reader.OnNewTextAvailableNotify(textObserver);
             reader.SetFilePath(TEST_FILE_PATH + "singleLineFile.txt");
             reader.Read();
 
@@ -39,7 +39,7 @@ namespace Tests.FocusedIntegrationTests
             var textObserver = new ProcessedTextObserver();
             var reader = new WholeFileAtOnceFileReader();
 
-            reader.AddSubscriber(textObserver);
+            reader.OnNewTextAvailableNotify(textObserver);
             reader.SetFilePath(TEST_FILE_PATH + "multilineFile.txt");
             reader.Read();
 

@@ -1,6 +1,6 @@
 ﻿namespace MoodDesignChallenge
 {
-    public class ProcessedTextObserver : IProcessedTextChannel
+    public class ProcessedTextObserver : IProcessedText
     {
         public string ReceivedText;
 

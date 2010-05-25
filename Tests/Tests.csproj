@@ -56,6 +56,9 @@
     <Compile Include="FocusedIntegrationTests\WholeFileAtOnceFileWriterTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="configuration.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="e2e_from.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

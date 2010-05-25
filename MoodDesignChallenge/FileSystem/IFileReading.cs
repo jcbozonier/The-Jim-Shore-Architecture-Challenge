@@ -1,6 +1,6 @@
 ﻿namespace MoodDesignChallenge
 {
-    public interface IFileReadingChannel
+    public interface IFileReading
     {
         void Read();
     }

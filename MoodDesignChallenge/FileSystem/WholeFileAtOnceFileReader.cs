@@ -3,20 +3,20 @@ using MoodDesignChallenge.Channels;
 
 namespace MoodDesignChallenge
 {
-    public class WholeFileAtOnceFileReader : IFileReadingChannel, IFilePathConfiguration
+    public class WholeFileAtOnceFileReader : IFileReading, IFileSystemConfiguration
     {
-        private IProcessedTextChannel _processedTextChannelChannel;
+        private IProcessedText _processedText;
         private string FilePath;
 
-        public void AddSubscriber(IProcessedTextChannel processedTextChannelChannel)
+        public void OnNewTextAvailableNotify(IProcessedText processedText)
         {
-            _processedTextChannelChannel = processedTextChannelChannel;
+            _processedText = processedText;
         }
 
         private void Read(string filePath)
         {
             var readText = File.ReadAllText(filePath);
-            _processedTextChannelChannel.Process(readText);
+            _processedText.Process(readText);
         }
 
         public void SetFilePath(string filePath)

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using MoodDesignChallenge;
 using NUnit.Framework;
 
 namespace Tests
@@ -8,7 +9,18 @@ namespace Tests
     public class ConsoleEndToEndTest
     {
         [Test]
-        public void Do()
+        public void EndToEndWithInMainProject()
+        {
+            var textObservable = new ProcessedTextObserver();
+            RunNetwork.RunSystem(textObservable);
+
+            Assert.That(File.Exists("e2e_to.txt"), "It should have created a results file.");
+            Assert.That(File.ReadAllText("e2e_to.txt"), Is.EqualTo(CorrectText));
+            Assert.That(textObservable.ReceivedText, Is.EqualTo(CorrectText));
+        }
+
+        [Test]
+        public void ConsoleTest()
         {
             try
             {

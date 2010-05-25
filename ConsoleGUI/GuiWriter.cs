@@ -3,7 +3,7 @@ using MoodDesignChallenge;
 
 namespace ConsoleGUI
 {
-    public class GuiWriter : IProcessedTextChannel
+    public class GuiWriter : IProcessedText
     {
         public void Process(string text)
         {

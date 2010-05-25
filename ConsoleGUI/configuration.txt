@@ -1,2 +1,1 @@
-﻿e2e_from.txt
-e2e_to.txt
+﻿

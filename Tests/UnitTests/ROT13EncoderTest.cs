@@ -13,7 +13,7 @@ namespace Tests.UnitTests
 
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             encoder.Process("");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
@@ -26,7 +26,7 @@ namespace Tests.UnitTests
 
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             encoder.Process("a");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
@@ -39,7 +39,7 @@ namespace Tests.UnitTests
 
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             encoder.Process("A");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
@@ -52,7 +52,7 @@ namespace Tests.UnitTests
 
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             encoder.Process("\t");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
@@ -65,7 +65,7 @@ namespace Tests.UnitTests
 
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             var originalText = "ab";
             encoder.Process(originalText);
 
@@ -82,7 +82,7 @@ namespace Tests.UnitTests
             var expectedString = ((char)('Z' + 1)).ToString();
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             encoder.Process(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
@@ -94,7 +94,7 @@ namespace Tests.UnitTests
             var expectedString = ((char) ('z' + 1)).ToString();
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
-            encoder.AddSubscriber(textObserver);
+            encoder.OnNewEncodedTextAvailableNotify(textObserver);
             encoder.Process(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));

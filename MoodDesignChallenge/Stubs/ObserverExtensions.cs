@@ -1,8 +1,10 @@
-﻿namespace MoodDesignChallenge
+﻿using System.Collections.Generic;
+
+namespace MoodDesignChallenge
 {
     public static class ObserverExtensions
     {
-        public static IProcessedTextChannel CreateMultiObserver(this IProcessedTextChannel[] channels)
+        public static IProcessedText CreateMultiObserver(this IEnumerable<IProcessedText> channels)
         {
             var multiobserver = new MultipleTextObserverSubscriber();
             foreach(var channel in channels)

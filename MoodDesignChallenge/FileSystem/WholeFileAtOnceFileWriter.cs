@@ -4,7 +4,7 @@ using MoodDesignChallenge.Channels;
 
 namespace MoodDesignChallenge
 {
-    public class WholeFileAtOnceFileWriter : IProcessedTextChannel, IFilePathConfiguration
+    public class WholeFileAtOnceFileWriter : IProcessedText, IFileSystemConfiguration
     {
         private string FilePath;
 

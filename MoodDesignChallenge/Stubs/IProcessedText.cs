@@ -1,6 +1,6 @@
 ﻿namespace MoodDesignChallenge
 {
-    public interface IProcessedTextChannel
+    public interface IProcessedText
     {
         void Process(string text);
     }

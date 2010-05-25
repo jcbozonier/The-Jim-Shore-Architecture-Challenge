@@ -2,13 +2,13 @@
 
 namespace MoodDesignChallenge
 {
-    public class MultipleTextObserverSubscriber : IProcessedTextChannel
+    public class MultipleTextObserverSubscriber : IProcessedText
     {
-        private List<IProcessedTextChannel> Channels;
+        private List<IProcessedText> Channels;
 
         public MultipleTextObserverSubscriber()
         {
-            Channels = new List<IProcessedTextChannel>();
+            Channels = new List<IProcessedText>();
         }
 
         public void Process(string text)
@@ -17,9 +17,9 @@ namespace MoodDesignChallenge
                 channel.Process(text);
         }
 
-        public void AddSubscriber(IProcessedTextChannel processedTextChannel)
+        public void AddSubscriber(IProcessedText processedText)
         {
-            Channels.Add(processedTextChannel);
+            Channels.Add(processedText);
         }
     }
 }

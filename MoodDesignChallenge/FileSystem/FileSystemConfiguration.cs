@@ -3,17 +3,17 @@ using MoodDesignChallenge.Channels;
 
 namespace MoodDesignChallenge
 {
-    public class ConfigurationActor
+    public class FileSystemConfiguration
     {
-        private IFilePathConfiguration FileReader;
-        private IFilePathConfiguration FileWriter;
+        private IFileSystemConfiguration FileReader;
+        private IFileSystemConfiguration FileWriter;
 
-        public void ActorToReadFromFilePath(IFilePathConfiguration fileReader)
+        public void SetFileReader(IFileSystemConfiguration fileReader)
         {
             FileReader = fileReader;
         }
 
-        public void ActorToWriteToFilePath(IFilePathConfiguration fileWriter)
+        public void SetFileWriter(IFileSystemConfiguration fileWriter)
         {
             FileWriter = fileWriter;
         }

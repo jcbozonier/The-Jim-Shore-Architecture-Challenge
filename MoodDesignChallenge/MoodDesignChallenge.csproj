@@ -48,19 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Channels\IEncodingChannel.cs" />
-    <Compile Include="Channels\IFilePathConfiguration.cs" />
-    <Compile Include="Channels\IFileReadingChannel.cs" />
-    <Compile Include="ConfigurationActor.cs" />
-    <Compile Include="GuiActor.cs" />
-    <Compile Include="Channels\IProcessedTextChannel.cs" />
-    <Compile Include="MultipleTextObserverSubscriber.cs" />
-    <Compile Include="ObserverExtensions.cs" />
+    <Compile Include="FileSystem\IFileSystemConfiguration.cs" />
+    <Compile Include="FileSystem\IFileReading.cs" />
+    <Compile Include="FileSystem\FileSystemConfiguration.cs" />
+    <Compile Include="RunNetwork.cs" />
+    <Compile Include="Stubs\FileReadingStub.cs" />
+    <Compile Include="Stubs\FileSystemConfigurationChannel.cs" />
+    <Compile Include="SystemControlCenter.cs" />
+    <Compile Include="Stubs\IProcessedText.cs" />
+    <Compile Include="Stubs\MultipleTextObserverSubscriber.cs" />
+    <Compile Include="Stubs\ObserverExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ROT13Encoding.cs" />
-    <Compile Include="ProcessedTextObserver.cs" />
-    <Compile Include="WholeFileAtOnceFileWriter.cs" />
-    <Compile Include="WholeFileAtOnceFileReader.cs" />
+    <Compile Include="Stubs\ProcessedTextObserver.cs" />
+    <Compile Include="FileSystem\WholeFileAtOnceFileWriter.cs" />
+    <Compile Include="FileSystem\WholeFileAtOnceFileReader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

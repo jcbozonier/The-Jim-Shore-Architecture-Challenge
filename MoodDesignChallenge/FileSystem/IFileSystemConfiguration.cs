@@ -1,6 +1,6 @@
 ﻿namespace MoodDesignChallenge.Channels
 {
-    public interface IFilePathConfiguration
+    public interface IFileSystemConfiguration
     {
         void SetFilePath(string filePath);
     }
