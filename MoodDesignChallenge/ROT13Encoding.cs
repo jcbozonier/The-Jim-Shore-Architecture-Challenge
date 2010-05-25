@@ -15,10 +15,20 @@
 
             foreach (var character in stringToEncode)
             {
-                if (character >= 'A' && character <= 'Z' || 
-                    character >= 'a' && character <= 'z')
+                if(character >= 'A' && character <= 'Z')
                 {
-                    result += (char)(character + 13);
+                    if(character > 'M')
+                        result += (char)(character - 13);
+                    else
+                        result += (char)(character  + 13);
+                }
+                else if (character >= 'a' && character <= 'z')
+                {
+
+                    if (character > 'm')
+                        result += (char)(character - 13);
+                    else
+                        result += (char)(character + 13);
                 }
                 else
                     result += character;

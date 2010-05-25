@@ -66,9 +66,14 @@ namespace Tests.UnitTests
             var textObserver = new ProcessedTextObserver();
             var encoder = new ROT13Encoding();
             encoder.AddSubscriber(textObserver);
-            encoder.Process("ab");
+            var originalText = "ab";
+            encoder.Process(originalText);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
+
+            encoder.Process(textObserver.ReceivedText);
+
+            Assert.That(textObserver.ReceivedText, Is.EqualTo(originalText));
         }
 
         [Test]

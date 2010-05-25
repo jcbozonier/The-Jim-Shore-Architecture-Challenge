@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using ConsoleGUI;
 using NUnit.Framework;
 
 namespace Tests
@@ -25,11 +20,16 @@ namespace Tests
                 process.WaitForExit(2000);
 
                 Assert.That(File.Exists("e2e_to.txt"), "It should have created a results file.");
+                Assert.That(File.ReadAllText("e2e_to.txt"), Is.EqualTo(CorrectText));
             }
             finally
             {
                 File.Delete("e2e_to.txt");
             }
         }
+
+        private string CorrectText = @"Gur dhvpx oebja sbk whzcrq 
+bire gur ynml
+Yvxr qbt naq fhpu.";
     }
 }
