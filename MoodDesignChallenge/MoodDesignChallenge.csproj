@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IEncodingChannel.cs" />
-    <Compile Include="IFileReadingChannel.cs" />
+    <Compile Include="Channels\IEncodingChannel.cs" />
+    <Compile Include="Channels\IFileReadingChannel.cs" />
     <Compile Include="GuiActor.cs" />
-    <Compile Include="IFileWritingChannel.cs" />
-    <Compile Include="ITextReceivedChannel.cs" />
+    <Compile Include="Channels\IFileWritingChannel.cs" />
+    <Compile Include="Channels\ITextReceivedChannel.cs" />
     <Compile Include="Tests\GuiConcernsTests.cs" />
     <Compile Include="Tests\ROT13EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,9 +73,6 @@
     <Content Include="Tests\TestFiles\singleLineFile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Channels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
