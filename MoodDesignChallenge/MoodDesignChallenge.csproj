@@ -46,8 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ROT13EncoderTest.cs" />
+    <Compile Include="Tests\ROT13EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ROT13Encoding.cs" />
+    <Compile Include="WholeFileAtOnceFileReader.cs" />
+    <Compile Include="Tests\WholeFileAtOnceFileReaderTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tests\TestFiles\multilineFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tests\TestFiles\emptyTestFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tests\TestFiles\singleLineFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

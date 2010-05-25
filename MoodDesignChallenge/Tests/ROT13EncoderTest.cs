@@ -1,7 +1,6 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace MoodDesignChallenge
+namespace MoodDesignChallenge.Tests
 {
     [TestFixture]
     public class ROT13EncoderTest
@@ -88,28 +87,6 @@ namespace MoodDesignChallenge
             encoder.Encode(expectedString, encodedString=>actualString = encodedString);
 
             Assert.That(actualString, Is.EqualTo(expectedString));
-        }
-    }
-
-    public class ROT13Encoding
-    {
-        public void Encode(string stringToEncode, Func<string, string> resultChannel)
-        {
-            var result = "";
-
-            foreach (var character in stringToEncode)
-            {
-                if (character >= 'A' && character <= 'Z' || 
-                    character >= 'a' && character <= 'z')
-                {
-                    result += (char)(character + 13);
-                }
-                else
-                    result += character;
-            }
-
-            resultChannel(result);
-        
         }
     }
 }
