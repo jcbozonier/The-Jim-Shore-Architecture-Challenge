@@ -57,6 +57,7 @@
     <Compile Include="Tests\ROT13EncoderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ROT13Encoding.cs" />
+    <Compile Include="Tests\TextObserver.cs" />
     <Compile Include="WholeFileAtOnceFileWriter.cs" />
     <Compile Include="Tests\WholeFileAtOnceFileWriterTests.cs" />
     <Compile Include="WholeFileAtOnceFileReader.cs" />

@@ -21,7 +21,17 @@ namespace MoodDesignChallenge.Tests
             Assert.That(fileWritingChannel.FilePathToWrite, Is.EqualTo("to file"));
         }
 
-        
+        [Test]
+        public void When_updating_the_display_with_the_encoded_text()
+        {
+            var displayChannel = new TextObserver(); 
+            var guiActor = new GuiActor();
+            guiActor.SubscribeToChannel(displayChannel);
+
+            guiActor.Received("testing!");
+
+            Assert.That(displayChannel.ReceivedText, Is.EqualTo("testing!"));
+        }
     }
 
     public class FileWritingStub : IFileWritingChannel
