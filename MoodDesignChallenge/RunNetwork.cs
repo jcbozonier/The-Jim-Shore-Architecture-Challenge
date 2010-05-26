@@ -1,8 +1,10 @@
-﻿namespace MoodDesignChallenge
+﻿using System;
+
+namespace MoodDesignChallenge
 {
     public class RunNetwork
     {
-        public static void RunSystem(IProcessedText guiWriter)
+        public static void RunSystem(IProcessedText guiWriter, string fromFile, string toFile)
         {
             var configuration = new FileSystemConfiguration();
             var encoder = new ROT13Encoding();
@@ -21,8 +23,8 @@
 
             configuration.Configure();
 
-            fileReader.SetFilePath("e2e_from.txt");
-            fileWriter.SetFilePath("e2e_to.txt");
+            fileReader.SetFilePath(fromFile);
+            fileWriter.SetFilePath(toFile);
 
             fileReader.Read();
         }

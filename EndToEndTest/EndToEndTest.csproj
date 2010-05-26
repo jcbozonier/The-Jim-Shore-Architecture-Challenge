@@ -53,7 +53,7 @@
     <Content Include="configuration.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="From\e2e_from.txt">
+    <Content Include="From\from.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="To\spacer.txt">

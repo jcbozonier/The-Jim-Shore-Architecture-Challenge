@@ -14,7 +14,7 @@ namespace EndToEndTest
             {
                 var process = new Process();
                 process.StartInfo.FileName = "../../../ConsoleGUI/bin/debug/ConsoleGUI.exe";
-                process.StartInfo.Arguments = "e2e_from.txt e2e_to.txt";
+                process.StartInfo.Arguments = "from.txt to.txt";
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.RedirectStandardOutput = true;
@@ -24,14 +24,14 @@ namespace EndToEndTest
 
                 var outputText = process.StandardOutput.ReadToEnd();
 
-                Assert.That(File.Exists("To/e2e_to.txt"), "It should have created a results file.");
-                Assert.That(File.ReadAllText("To/e2e_to.txt"), Is.EqualTo(CorrectText));
+                Assert.That(File.Exists("To/to.txt"), "It should have created a results file.");
+                Assert.That(File.ReadAllText("To/to.txt"), Is.EqualTo(CorrectText));
                 Assert.That(outputText, Is.Not.Empty);
                 Assert.That(outputText, Contains.Substring(CorrectText));
             }
             finally
             {
-                File.Delete("../../../ConsoleGUI/bin/debug/To/e2e_to.txt");
+                File.Delete("../../../ConsoleGUI/bin/debug/To/to.txt");
             }
         }
 

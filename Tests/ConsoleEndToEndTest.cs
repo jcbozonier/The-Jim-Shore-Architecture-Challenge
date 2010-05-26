@@ -12,7 +12,7 @@ namespace Tests
         public void EndToEndWithInMainProject()
         {
             var textObservable = new ProcessedTextObserver();
-            RunNetwork.RunSystem(textObservable);
+            RunNetwork.RunSystem(textObservable, "e2e_from.txt", "e2e_to.txt");
 
             Assert.That(File.Exists("topath/e2e_to.txt"), "It should have created a results file.");
             Assert.That(File.ReadAllText("topath/e2e_to.txt"), Is.EqualTo(CorrectText));
