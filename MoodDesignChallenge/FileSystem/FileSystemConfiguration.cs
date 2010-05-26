@@ -7,12 +7,12 @@ namespace MoodDesignChallenge.FileSystem
         private IFileSystemConfiguration FileReader;
         private IFileSystemConfiguration FileWriter;
 
-        public void SetFileReader(IFileSystemConfiguration fileReader)
+        public void SetFileReaderToConfigure(IFileSystemConfiguration fileReader)
         {
             FileReader = fileReader;
         }
 
-        public void SetFileWriter(IFileSystemConfiguration fileWriter)
+        public void SetFileWriterToConfigure(IFileSystemConfiguration fileWriter)
         {
             FileWriter = fileWriter;
         }

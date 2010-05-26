@@ -17,8 +17,8 @@ namespace MoodDesignChallenge
                                                  fileWriter
                                              }.CreateMultiObserver();
 
-            configuration.SetFileReader(fileReader);
-            configuration.SetFileWriter(fileWriter);
+            configuration.SetFileReaderToConfigure(fileReader);
+            configuration.SetFileWriterToConfigure(fileWriter);
             fileReader.OnNewTextAvailableNotify(encoder);
             encoder.OnNewEncodedTextAvailableNotify(encodedTextSubscribers);
 

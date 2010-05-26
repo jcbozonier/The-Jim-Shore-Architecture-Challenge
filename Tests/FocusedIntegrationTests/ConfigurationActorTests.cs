@@ -16,8 +16,8 @@ namespace Tests.FocusedIntegrationTests
             var fileWriter = new FileSystemConfigurationChannel();
             var configurationActor = new FileSystemConfiguration();
 
-            configurationActor.SetFileReader(fileReader);
-            configurationActor.SetFileWriter(fileWriter);
+            configurationActor.SetFileReaderToConfigure(fileReader);
+            configurationActor.SetFileWriterToConfigure(fileWriter);
 
             configurationActor.Configure();
 
