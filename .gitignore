@@ -3,6 +3,5 @@ _ReSharper*
 bin
 obj
 *.suo
-*.zip
 *.cache
 *.user
