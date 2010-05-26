@@ -51,7 +51,7 @@
     <Compile Include="FileSystem\IFileSystemConfiguration.cs" />
     <Compile Include="FileSystem\IFileReading.cs" />
     <Compile Include="FileSystem\FileSystemConfiguration.cs" />
-    <Compile Include="RunNetwork.cs" />
+    <Compile Include="ROT13EncodingFileWriter.cs" />
     <Compile Include="Stubs\FileSystemConfigurationChannel.cs" />
     <Compile Include="ITextHandOff.cs" />
     <Compile Include="Stubs\TextHandoffBroadcast.cs" />

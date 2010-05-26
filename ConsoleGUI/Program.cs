@@ -8,7 +8,7 @@ namespace ConsoleGUI
         {
             var guiWriter = new GuiWriter();
 
-            RunNetwork.RunSystem(guiWriter, args[0], args[1]);
+            ROT13EncodingFileWriter.Do(guiWriter, args[0], args[1]);
         }
     }
 }
