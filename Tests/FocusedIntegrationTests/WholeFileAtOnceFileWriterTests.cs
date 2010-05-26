@@ -18,16 +18,19 @@ namespace Tests.FocusedIntegrationTests
             var fullTestFilePath = Path.Combine(directoryPath, fileName);
             try
             {
-                var testText = "abc" + Environment.NewLine + "defdfssd fsdf dssd34$#33 dfsf";
-                var writer = new WholeFileAtOnceFileWriter();
+                var testTextLineOne = "abc";
+                var testTextLineTwo = "defdfssd fsdf dssd34$#33 dfsf";
+                var writer = new OneLineAtATimeFileWriter();
 
                 writer.SetWorkingDirectory(directoryPath);
                 writer.SetFilePath(fileName);
-                writer.Handoff(testText);
+
+                writer.Handoff(testTextLineOne);
+                writer.Handoff(testTextLineTwo);
 
                 var actualFileText = File.ReadAllText(directoryPath + fileName);
 
-                Assert.That(actualFileText, Is.EqualTo(testText));
+                Assert.That(actualFileText, Is.EqualTo(testTextLineOne + Environment.NewLine + testTextLineTwo));
             }
             finally
             {

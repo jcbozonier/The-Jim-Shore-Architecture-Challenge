@@ -1,9 +1,8 @@
 ﻿using System.IO;
-using MoodDesignChallenge.Stubs;
 
 namespace MoodDesignChallenge.FileSystem
 {
-    public class WholeFileAtOnceFileReader : IFileReading, IFileSystemConfiguration
+    public class OneLineAtATimeFileReader : IFileReading, IFileSystemConfiguration
     {
         private ITextHandOff _textHandOff;
         private string FilePath;
@@ -17,8 +16,16 @@ namespace MoodDesignChallenge.FileSystem
         public void Read()
         {
             var filePath = Path.Combine(CurrentDirectory, FilePath);
-            var readText = File.ReadAllText(filePath);
-            _textHandOff.Handoff(readText);
+
+            using(var file = File.OpenText(filePath))
+            {
+                while (!file.EndOfStream)
+                {
+                    var readLine = file.ReadLine();
+                    _textHandOff.Handoff(readLine);
+                }
+            }
+            
         }
 
         public void SetFilePath(string filePath)

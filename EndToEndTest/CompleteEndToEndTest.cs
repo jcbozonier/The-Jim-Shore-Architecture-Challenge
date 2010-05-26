@@ -36,7 +36,8 @@ namespace EndToEndTest
             }
         }
 
-        private string CorrectText = @"Gur dhvpx oebja sbk whzcrq 
+        private string CorrectText = 
+@"Gur dhvpx oebja sbk whzcrq 
 bire gur ynml
 Yvxr qbt naq fhpu.";
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using MoodDesignChallenge;
 using MoodDesignChallenge.FileSystem;
 using MoodDesignChallenge.Stubs;
 using NUnit.Framework;
@@ -14,21 +13,24 @@ namespace Tests.FocusedIntegrationTests
         [Test]
         public void When_reading_a_whole_empty_file_at_once()
         {
-            var textObserver = new TextHandOffObserver();
-            var reader = new WholeFileAtOnceFileReader();
+            var fileLineCount = 0;
+            var textObserver = new TextHandOffAggregator();
+            var reader = new OneLineAtATimeFileReader();
+
             reader.OnNewTextAvailableNotify(textObserver);
             reader.SetWorkingDirectory(TEST_FILE_PATH);
             reader.SetFilePath("emptyTestFile.txt");
             reader.Read();
 
-            Assert.That(textObserver.ReceivedText, Is.EqualTo(""), "The result should contain all of the text in the file.");
+            Assert.That(textObserver.ReceivedText.Count, Is.EqualTo(fileLineCount), "The result should contain all of the text in the file.");
         }
 
         [Test]
         public void When_reading_a_whole_single_line_file_at_once()
         {
             var textObserver = new TextHandOffObserver();
-            var reader = new WholeFileAtOnceFileReader();
+            var reader = new OneLineAtATimeFileReader();
+
             reader.OnNewTextAvailableNotify(textObserver);
             reader.SetWorkingDirectory(TEST_FILE_PATH);
             reader.SetFilePath("singleLineFile.txt");
@@ -40,15 +42,15 @@ namespace Tests.FocusedIntegrationTests
         [Test]
         public void When_reading_a_whole_multi_line_file_at_once()
         {
-            var textObserver = new TextHandOffObserver();
-            var reader = new WholeFileAtOnceFileReader();
+            var textObserver = new TextHandOffAggregator();
+            var reader = new OneLineAtATimeFileReader();
 
             reader.OnNewTextAvailableNotify(textObserver);
             reader.SetWorkingDirectory(TEST_FILE_PATH);
             reader.SetFilePath("multilineFile.txt");
             reader.Read();
 
-            Assert.That(textObserver.ReceivedText, Is.EqualTo("a" + Environment.NewLine + "b"));
+            Assert.That(textObserver.ReceivedText, Is.EqualTo(new []{"a", "b"}));
         }
     }
 }

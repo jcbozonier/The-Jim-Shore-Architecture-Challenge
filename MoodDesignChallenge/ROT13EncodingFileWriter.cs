@@ -9,8 +9,8 @@ namespace MoodDesignChallenge
         {
             var configuration = new FileSystemConfiguration();
             var encoder = new ROT13Encoding();
-            var fileReader = new WholeFileAtOnceFileReader();
-            var fileWriter = new WholeFileAtOnceFileWriter();
+            var fileReader = new OneLineAtATimeFileReader();
+            var fileWriter = new OneLineAtATimeFileWriter();
             var encodedTextSubscribers = new[]
                                              {
                                                  guiWriter, 
