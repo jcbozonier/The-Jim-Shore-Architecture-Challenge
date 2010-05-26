@@ -6,7 +6,7 @@ namespace MoodDesignChallenge.Stubs
     {
         public static ITextHandOff CreateMultiObserver(this IEnumerable<ITextHandOff> channels)
         {
-            var multiobserver = new MultipleTextHandOffObserverSubscriber();
+            var multiobserver = new TextHandoffBroadcast();
             foreach(var channel in channels)
                 multiobserver.AddSubscriber(channel);
             return multiobserver;

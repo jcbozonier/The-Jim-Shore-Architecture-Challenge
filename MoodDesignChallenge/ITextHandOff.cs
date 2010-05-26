@@ -1,4 +1,4 @@
-﻿namespace MoodDesignChallenge.Stubs
+﻿namespace MoodDesignChallenge
 {
     public interface ITextHandOff
     {

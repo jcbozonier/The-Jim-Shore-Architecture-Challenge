@@ -1,5 +1,4 @@
-﻿using System;
-using MoodDesignChallenge.FileSystem;
+﻿using MoodDesignChallenge.FileSystem;
 using MoodDesignChallenge.Stubs;
 
 namespace MoodDesignChallenge

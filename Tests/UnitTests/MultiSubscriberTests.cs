@@ -12,7 +12,7 @@ namespace Tests.UnitTests
         {
             var observerA = new TextHandOffObserver();
 
-            var multiObserver = new MultipleTextHandOffObserverSubscriber();
+            var multiObserver = new TextHandoffBroadcast();
             multiObserver.AddSubscriber(observerA);
 
             multiObserver.Handoff("TEST!");

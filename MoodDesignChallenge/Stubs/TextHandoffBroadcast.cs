@@ -2,11 +2,11 @@
 
 namespace MoodDesignChallenge.Stubs
 {
-    public class MultipleTextHandOffObserverSubscriber : ITextHandOff
+    public class TextHandoffBroadcast : ITextHandOff
     {
-        private List<ITextHandOff> Channels;
+        private readonly List<ITextHandOff> Channels;
 
-        public MultipleTextHandOffObserverSubscriber()
+        public TextHandoffBroadcast()
         {
             Channels = new List<ITextHandOff>();
         }

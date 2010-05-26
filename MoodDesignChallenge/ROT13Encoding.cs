@@ -1,6 +1,4 @@
-﻿using MoodDesignChallenge.Stubs;
-
-namespace MoodDesignChallenge
+﻿namespace MoodDesignChallenge
 {
     public class ROT13Encoding : ITextHandOff
     {
@@ -37,7 +35,6 @@ namespace MoodDesignChallenge
             }
 
             _textHandOff.Handoff(result);
-        
         }
     }
 }
