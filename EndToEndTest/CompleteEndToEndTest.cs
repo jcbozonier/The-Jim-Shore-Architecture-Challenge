@@ -8,13 +8,14 @@ namespace EndToEndTest
     public class CompleteEndToEndTest
     {
         [Test]
-        public void ConsoleTest()
+        public void ConsoleEndToEndTest()
         {
             try
             {
                 var process = new Process();
                 process.StartInfo.FileName = "../../../ConsoleGUI/bin/debug/ConsoleGUI.exe";
                 process.StartInfo.Arguments = "from.txt to.txt";
+                process.StartInfo.CreateNoWindow = true;
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.RedirectStandardOutput = true;
