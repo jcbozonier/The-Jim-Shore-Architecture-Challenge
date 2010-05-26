@@ -15,7 +15,8 @@ namespace Tests.FocusedIntegrationTests
             var textObserver = new ProcessedTextObserver();
             var reader = new WholeFileAtOnceFileReader();
             reader.OnNewTextAvailableNotify(textObserver);
-            reader.SetFilePath(TEST_FILE_PATH + "emptyTestFile.txt");
+            reader.SetWorkingDirectory(TEST_FILE_PATH);
+            reader.SetFilePath("emptyTestFile.txt");
             reader.Read();
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(""), "The result should contain all of the text in the file.");
@@ -27,7 +28,8 @@ namespace Tests.FocusedIntegrationTests
             var textObserver = new ProcessedTextObserver();
             var reader = new WholeFileAtOnceFileReader();
             reader.OnNewTextAvailableNotify(textObserver);
-            reader.SetFilePath(TEST_FILE_PATH + "singleLineFile.txt");
+            reader.SetWorkingDirectory(TEST_FILE_PATH);
+            reader.SetFilePath("singleLineFile.txt");
             reader.Read();
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo("42"));
@@ -40,7 +42,8 @@ namespace Tests.FocusedIntegrationTests
             var reader = new WholeFileAtOnceFileReader();
 
             reader.OnNewTextAvailableNotify(textObserver);
-            reader.SetFilePath(TEST_FILE_PATH + "multilineFile.txt");
+            reader.SetWorkingDirectory(TEST_FILE_PATH);
+            reader.SetFilePath("multilineFile.txt");
             reader.Read();
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo("a" + Environment.NewLine + "b"));

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using MoodDesignChallenge.Channels;
 
 namespace MoodDesignChallenge
@@ -7,14 +8,16 @@ namespace MoodDesignChallenge
     {
         private IProcessedText _processedText;
         private string FilePath;
+        private string CurrentDirectory = "";
 
         public void OnNewTextAvailableNotify(IProcessedText processedText)
         {
             _processedText = processedText;
         }
 
-        private void Read(string filePath)
+        public void Read()
         {
+            var filePath = Path.Combine(CurrentDirectory, FilePath);
             var readText = File.ReadAllText(filePath);
             _processedText.Process(readText);
         }
@@ -24,9 +27,9 @@ namespace MoodDesignChallenge
             FilePath = filePath;
         }
 
-        public void Read()
+        public void SetWorkingDirectory(string directoryPath)
         {
-            Read(FilePath);
+            CurrentDirectory = directoryPath;
         }
     }
 }

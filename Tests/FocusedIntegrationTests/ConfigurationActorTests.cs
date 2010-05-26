@@ -1,5 +1,6 @@
 ﻿using System;
 using MoodDesignChallenge;
+using MoodDesignChallenge.Stubs;
 using NUnit.Framework;
 
 namespace Tests.FocusedIntegrationTests
@@ -19,8 +20,8 @@ namespace Tests.FocusedIntegrationTests
 
             configurationActor.Configure();
 
-            Assert.That(fileReader.ReceivedFilePath, Is.EqualTo("e2e_from.txt"));
-            Assert.That(fileWriter.ReceivedFilePath, Is.EqualTo("e2e_to.txt"));
+            Assert.That(fileReader.ReceivedWorkingDirectory, Is.EqualTo("frompath/"));
+            Assert.That(fileWriter.ReceivedWorkingDirectory, Is.EqualTo("topath/"));
         }
     }
 }

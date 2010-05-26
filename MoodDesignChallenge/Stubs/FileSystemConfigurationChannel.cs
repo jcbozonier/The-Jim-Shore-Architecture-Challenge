@@ -1,14 +1,19 @@
 ﻿using MoodDesignChallenge.Channels;
 
-namespace Tests.FocusedIntegrationTests
+namespace MoodDesignChallenge.Stubs
 {
     public class FileSystemConfigurationChannel : IFileSystemConfiguration
     {
-        public string ReceivedFilePath;
+        public string ReceivedWorkingDirectory;
 
         public void SetFilePath(string filePath)
         {
-            ReceivedFilePath = filePath;
+            
+        }
+
+        public void SetWorkingDirectory(string directoryPath)
+        {
+            ReceivedWorkingDirectory = directoryPath;
         }
     }
 }

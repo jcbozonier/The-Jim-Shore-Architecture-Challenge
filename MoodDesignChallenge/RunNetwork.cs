@@ -21,6 +21,9 @@
 
             configuration.Configure();
 
+            fileReader.SetFilePath("e2e_from.txt");
+            fileWriter.SetFilePath("e2e_to.txt");
+
             fileReader.Read();
         }
     }
