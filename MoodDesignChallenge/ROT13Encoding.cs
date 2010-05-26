@@ -1,15 +1,17 @@
-﻿namespace MoodDesignChallenge
-{
-    public class ROT13Encoding : IProcessedText
-    {
-        private IProcessedText _processedText;
+﻿using MoodDesignChallenge.Stubs;
 
-        public void OnNewEncodedTextAvailableNotify(IProcessedText processedText)
+namespace MoodDesignChallenge
+{
+    public class ROT13Encoding : ITextHandOff
+    {
+        private ITextHandOff _textHandOff;
+
+        public void OnNewEncodedTextAvailableNotify(ITextHandOff textHandOff)
         {
-            _processedText = processedText;
+            _textHandOff = textHandOff;
         }
 
-        public void Process(string stringToEncode)
+        public void Handoff(string stringToEncode)
         {
             var result = "";
 
@@ -34,7 +36,7 @@
                     result += character;
             }
 
-            _processedText.Process(result);
+            _textHandOff.Handoff(result);
         
         }
     }

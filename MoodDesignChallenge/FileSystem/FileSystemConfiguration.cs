@@ -1,7 +1,6 @@
 ﻿using System.IO;
-using MoodDesignChallenge.Channels;
 
-namespace MoodDesignChallenge
+namespace MoodDesignChallenge.FileSystem
 {
     public class FileSystemConfiguration
     {

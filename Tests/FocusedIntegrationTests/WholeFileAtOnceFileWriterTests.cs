@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using MoodDesignChallenge;
+using MoodDesignChallenge.FileSystem;
 using NUnit.Framework;
 
 namespace Tests.FocusedIntegrationTests
@@ -22,7 +23,7 @@ namespace Tests.FocusedIntegrationTests
 
                 writer.SetWorkingDirectory(directoryPath);
                 writer.SetFilePath(fileName);
-                writer.Process(testText);
+                writer.Handoff(testText);
 
                 var actualFileText = File.ReadAllText(directoryPath + fileName);
 

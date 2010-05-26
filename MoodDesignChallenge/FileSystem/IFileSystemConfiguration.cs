@@ -1,4 +1,4 @@
-﻿namespace MoodDesignChallenge.Channels
+﻿namespace MoodDesignChallenge.FileSystem
 {
     public interface IFileSystemConfiguration
     {

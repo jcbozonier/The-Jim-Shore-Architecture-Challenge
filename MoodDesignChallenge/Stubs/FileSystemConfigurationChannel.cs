@@ -1,4 +1,4 @@
-﻿using MoodDesignChallenge.Channels;
+﻿using MoodDesignChallenge.FileSystem;
 
 namespace MoodDesignChallenge.Stubs
 {

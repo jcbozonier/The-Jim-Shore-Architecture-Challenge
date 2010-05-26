@@ -1,25 +1,24 @@
-﻿using System;
-using System.IO;
-using MoodDesignChallenge.Channels;
+﻿using System.IO;
+using MoodDesignChallenge.Stubs;
 
-namespace MoodDesignChallenge
+namespace MoodDesignChallenge.FileSystem
 {
     public class WholeFileAtOnceFileReader : IFileReading, IFileSystemConfiguration
     {
-        private IProcessedText _processedText;
+        private ITextHandOff _textHandOff;
         private string FilePath;
         private string CurrentDirectory = "";
 
-        public void OnNewTextAvailableNotify(IProcessedText processedText)
+        public void OnNewTextAvailableNotify(ITextHandOff textHandOff)
         {
-            _processedText = processedText;
+            _textHandOff = textHandOff;
         }
 
         public void Read()
         {
             var filePath = Path.Combine(CurrentDirectory, FilePath);
             var readText = File.ReadAllText(filePath);
-            _processedText.Process(readText);
+            _textHandOff.Handoff(readText);
         }
 
         public void SetFilePath(string filePath)

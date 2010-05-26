@@ -1,11 +1,12 @@
 ﻿using System;
 using MoodDesignChallenge;
+using MoodDesignChallenge.Stubs;
 
 namespace ConsoleGUI
 {
-    public class GuiWriter : IProcessedText
+    public class GuiWriter : ITextHandOff
     {
-        public void Process(string text)
+        public void Handoff(string text)
         {
             Console.WriteLine(text);
         }

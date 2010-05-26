@@ -1,6 +1,6 @@
-﻿using MoodDesignChallenge;
+﻿using MoodDesignChallenge.FileSystem;
 
-namespace Tests.UnitTests
+namespace MoodDesignChallenge.Stubs
 {
     public class FileReadingStub : IFileReading
     {

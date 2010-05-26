@@ -1,4 +1,5 @@
 ﻿using MoodDesignChallenge;
+using MoodDesignChallenge.Stubs;
 using NUnit.Framework;
 
 namespace Tests.UnitTests
@@ -11,10 +12,10 @@ namespace Tests.UnitTests
         {
             var expectedString = "";
 
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
-            encoder.Process("");
+            encoder.Handoff("");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -24,10 +25,10 @@ namespace Tests.UnitTests
         {
             var expectedString = "n";
 
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
-            encoder.Process("a");
+            encoder.Handoff("a");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -37,10 +38,10 @@ namespace Tests.UnitTests
         {
             var expectedString = "N";
 
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
-            encoder.Process("A");
+            encoder.Handoff("A");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -50,10 +51,10 @@ namespace Tests.UnitTests
         {
             var expectedString = "\t";
 
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
-            encoder.Process("\t");
+            encoder.Handoff("\t");
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -63,15 +64,15 @@ namespace Tests.UnitTests
         {
             var expectedString = "no";
 
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
             var originalText = "ab";
-            encoder.Process(originalText);
+            encoder.Handoff(originalText);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
 
-            encoder.Process(textObserver.ReceivedText);
+            encoder.Handoff(textObserver.ReceivedText);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(originalText));
         }
@@ -80,10 +81,10 @@ namespace Tests.UnitTests
         public void When_encoding_a_character_that_lies_between_Z_and_a_in_ascii()
         {
             var expectedString = ((char)('Z' + 1)).ToString();
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
-            encoder.Process(expectedString);
+            encoder.Handoff(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }
@@ -92,10 +93,10 @@ namespace Tests.UnitTests
         public void When_encoding_a_character_that_lies_beyond_lowercase_z_in_ascii()
         {
             var expectedString = ((char) ('z' + 1)).ToString();
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var encoder = new ROT13Encoding();
             encoder.OnNewEncodedTextAvailableNotify(textObserver);
-            encoder.Process(expectedString);
+            encoder.Handoff(expectedString);
 
             Assert.That(textObserver.ReceivedText, Is.EqualTo(expectedString));
         }

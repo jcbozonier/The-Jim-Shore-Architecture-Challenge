@@ -54,12 +54,12 @@
     <Compile Include="RunNetwork.cs" />
     <Compile Include="Stubs\FileReadingStub.cs" />
     <Compile Include="Stubs\FileSystemConfigurationChannel.cs" />
-    <Compile Include="Stubs\IProcessedText.cs" />
-    <Compile Include="Stubs\MultipleTextObserverSubscriber.cs" />
+    <Compile Include="Stubs\ITextHandOff.cs" />
+    <Compile Include="Stubs\MultipleTextHandOffObserverSubscriber.cs" />
     <Compile Include="Stubs\ObserverExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ROT13Encoding.cs" />
-    <Compile Include="Stubs\ProcessedTextObserver.cs" />
+    <Compile Include="Stubs\TextHandOffObserver.cs" />
     <Compile Include="FileSystem\WholeFileAtOnceFileWriter.cs" />
     <Compile Include="FileSystem\WholeFileAtOnceFileReader.cs" />
   </ItemGroup>

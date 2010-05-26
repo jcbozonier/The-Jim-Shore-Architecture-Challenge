@@ -1,10 +1,12 @@
 ﻿using System;
+using MoodDesignChallenge.FileSystem;
+using MoodDesignChallenge.Stubs;
 
 namespace MoodDesignChallenge
 {
     public class RunNetwork
     {
-        public static void RunSystem(IProcessedText guiWriter, string fromFile, string toFile)
+        public static void RunSystem(ITextHandOff guiWriter, string fromFile, string toFile)
         {
             var configuration = new FileSystemConfiguration();
             var encoder = new ROT13Encoding();

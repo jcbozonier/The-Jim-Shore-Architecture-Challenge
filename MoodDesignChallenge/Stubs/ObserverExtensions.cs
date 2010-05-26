@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace MoodDesignChallenge
+namespace MoodDesignChallenge.Stubs
 {
     public static class ObserverExtensions
     {
-        public static IProcessedText CreateMultiObserver(this IEnumerable<IProcessedText> channels)
+        public static ITextHandOff CreateMultiObserver(this IEnumerable<ITextHandOff> channels)
         {
-            var multiobserver = new MultipleTextObserverSubscriber();
+            var multiobserver = new MultipleTextHandOffObserverSubscriber();
             foreach(var channel in channels)
                 multiobserver.AddSubscriber(channel);
             return multiobserver;

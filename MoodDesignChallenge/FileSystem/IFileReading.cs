@@ -1,4 +1,4 @@
-﻿namespace MoodDesignChallenge
+﻿namespace MoodDesignChallenge.FileSystem
 {
     public interface IFileReading
     {

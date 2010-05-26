@@ -1,5 +1,7 @@
 ﻿using System;
 using MoodDesignChallenge;
+using MoodDesignChallenge.FileSystem;
+using MoodDesignChallenge.Stubs;
 using NUnit.Framework;
 
 namespace Tests.FocusedIntegrationTests
@@ -12,7 +14,7 @@ namespace Tests.FocusedIntegrationTests
         [Test]
         public void When_reading_a_whole_empty_file_at_once()
         {
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var reader = new WholeFileAtOnceFileReader();
             reader.OnNewTextAvailableNotify(textObserver);
             reader.SetWorkingDirectory(TEST_FILE_PATH);
@@ -25,7 +27,7 @@ namespace Tests.FocusedIntegrationTests
         [Test]
         public void When_reading_a_whole_single_line_file_at_once()
         {
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var reader = new WholeFileAtOnceFileReader();
             reader.OnNewTextAvailableNotify(textObserver);
             reader.SetWorkingDirectory(TEST_FILE_PATH);
@@ -38,7 +40,7 @@ namespace Tests.FocusedIntegrationTests
         [Test]
         public void When_reading_a_whole_multi_line_file_at_once()
         {
-            var textObserver = new ProcessedTextObserver();
+            var textObserver = new TextHandOffObserver();
             var reader = new WholeFileAtOnceFileReader();
 
             reader.OnNewTextAvailableNotify(textObserver);

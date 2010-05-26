@@ -1,15 +1,14 @@
-﻿using System;
-using System.IO;
-using MoodDesignChallenge.Channels;
+﻿using System.IO;
+using MoodDesignChallenge.Stubs;
 
-namespace MoodDesignChallenge
+namespace MoodDesignChallenge.FileSystem
 {
-    public class WholeFileAtOnceFileWriter : IProcessedText, IFileSystemConfiguration
+    public class WholeFileAtOnceFileWriter : ITextHandOff, IFileSystemConfiguration
     {
         private string FilePath;
         private string WorkingDirectory;
 
-        public void Process(string textToWrite)
+        public void Handoff(string textToWrite)
         {
             File.WriteAllText(Path.Combine(WorkingDirectory, FilePath), textToWrite);
         }
